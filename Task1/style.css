@@ -1,6 +1,8 @@
-@import url(https://fonts.googleapis.com/css?family=Ubuntu:400,500);
+@import url(https://fonts.googleapis.com/css?family=Lora|Roboto:400,500);
 
 /* card aninamtions */
+
+
 
 
  body {
@@ -11,29 +13,33 @@
    text-rendering: optimizeLegibility;
    font-variant-ligatures: none;
    box-sizing: border-box;
-   font-family: 'Ubuntu', sans-serif;
-   background-color: #fafafa;
-  
+   font-family: 'Roboto', sans-serif;
+   background-color: #000000;
 /*   fixing horizontal scrolling */
    overflow-x: hidden;
 }
 
 .head-section{
-    color: #fafafa;
-    font-family: 'Ubuntu';
+  box-shadow: 0 8px 6px -6px black;
+  background-image: url("./img/banner.png");
+  color: #ffffff;
+  
+
 }
 
-body {
-  background-image: url("hacktoberfest2020.png");
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-size: cover;
-}
+/* .head-section{
+    box-shadow: 0 8px 6px -6px black;
+    background-image: url("./img/banner.png");
+    background-size: 100%;
+    background-repeat: no-repeat;
+    object-fit: fill;
+    image-rendering: auto;
+    max-width: 400em;;
+    color: #000000;
+    border-radius: 20px;
 
-.category {
-  font-size: xx-large;
-  text-decoration: underline;
-}
+} */
+
 
 body::before,
 body::after {
@@ -41,30 +47,42 @@ body::after {
   display: table;
   clear: both;
 }
+.header-img{
+  height: 20px;
+  background-color: black;
+}
+
+/* mobile responsive  */
+@media (max-width: 768px) {
+  .header-img{
+    height: 95px;
+  }
+}
+
+@media (max-width: 425px) {
+  .header-img{
+    height: 60px;
+  }
+}
+@media (max-width: 375px) {
+  .header-img{
+    height: 48px;
+  }
+}
+@media (max-width: 320px) {
+  .header-img{
+    height: 30px;
+  }
+}
+
+
 
 
 .icon{
   color: black;
 }
 
-.wp-icon {
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  text-align: center;
-  line-height: 50px;
-  vertical-align: middle;
-  color: #fff;
-  margin-right: 5px;
-}
 
-.fa-github {
-  background: black;
-}
-
-.fa-linkedin {
-  background: #0077B5;
-}
 
  .lts-1px {
    letter-spacing: 1px;
@@ -78,119 +96,209 @@ body::after {
   height: calc(100% - 50%);
 }
 
-.mycard{
-    margin: 2rem auto;
-    padding: 15px;
+.example {
+  display: -ms-grid;
+  display: grid;
+  -webkit-transition: all .5s;
+  -o-transition: all .5s;
+  transition: all .5s;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  background: -webkit-gradient(linear, left top, left bottom, from(white), to(black));
+  background: -o-linear-gradient(top, white, black);
+  background: linear-gradient(to bottom, white, black);
+}
+body {
+font-family: "Montserrat", sans-serif;
+font-size: 13px;
+color: #000000;
+margin: 0;
+/* background: url('https://images.unsplash.com/photo-1524899559789-49e2fa115598?ixlib=rb-1.2.1&q=85&fm=jpg&crop=entropy&cs=srgb&ixid=eyJhcHBfaWQiOjE0NTg5fQ') no-repeat; */
+background-size: cover;
+background-position: center center;
+background-attachment: fixed;
 }
 
-/* adding mobile screen compatibility */
-
-/* --------------------------------------------------------------- */
-/* for mobile screen */
-@media only screen and (min-width: 450px) {
-
-  body{
-    overflow-x: hidden;
-  }
-
-  .pic{
-    margin: 0 auto;
-    height: 18rem;
-    width: 22rem;
-    overflow-x: hidden;
-    overflow-y: hidden;
-  }  
-
-  .mycard{
-    padding: 0rem;
-
-  }
-
+@import url("https://fonts.googleapis.com/css?family=Montserrat:400,400i,700"),
+a,
+a:hover,
+a:visited,
+a:focus,
+textarea {
+text-decoration: none;
+outline: 0;
+cursor: pointer;
 }
 
-/* for large screens */
-.pic{
-  height: 18rem;
-  width: 20rem;
-  overflow-x: hidden;
-  overflow-y: hidden;
+.github-main {
+display: block;
+
+padding: 50px 0;
+position: relative;
 }
 
-/* -------------------------------------------------------- */
-
-
-
-
-.shadow-1 {
-  box-shadow: 0 4px 5px 0 rgba(15, 4, 4, 0.45);
-}
-.blue-hover {
-  transition: all 0.25s ease-in;
-  border-bottom: 5px solid transparent;
-}
-.blue-hover:hover {
-  transform: translateY(-5px);
-  /* border-bottom: 5px solid #020303; */
-}
-
-
-/* card animations end */
-
-.footer{
-  position: fixed;
-  left: 0;
-  bottom: 0;
-  width: 100%;
-  background-color: rgb(0, 0, 0);
-  color: rgb(255, 255, 255);
-  text-align: center;
-  height: 2.5rem;
-}
-.footer-block{
- text-align: center;
- margin-top: 1rem;
- margin: 1rem auto;
+.github-wrapper {
+background: #fff;
+max-width: 320px;
+margin: 0 auto;
+width: 100%;
+display: -webkit-box;
+display: -ms-flexbox;
+display: flex;
+-webkit-box-align: center;
+    -ms-flex-align: center;
+        align-items: center;
+-webkit-box-pack: center;
+    -ms-flex-pack: center;
+        justify-content: center;
+-webkit-box-orient: vertical;
+-webkit-box-direction: normal;
+    -ms-flex-direction: column;
+        flex-direction: column;
+border-radius: 40px;
+/* border-radius: 0px 0px 30px 0px; */
+-webkit-box-shadow: 0 2px 5px 2px rgba(0, 0, 0, 0.5);
+        box-shadow: 0 2px 5px 2px rgba(0, 0, 0, 0.5);
+font-size: 0;
 }
 
-.row {
-  margin-left: 0px;
-  margin-right: 0px;
+.github-banner canvas {
+display: block;
+width: 100%;
+background-position: center center;
+background-size: cover;
+background-repeat: repeat;
+border-radius: 40px 40px 0 0;
 }
 
-/* ****************** Responsive Styles ********************** */
-@media (max-width: 1200px) {
-  .fa-3x {
-    font-size: 1.5em;
-  }
-  .card-body {
-    padding: 0.8rem;
-  }
-  .card-title {
-    font-size: 1.0rem;
-  }
-  h6 {
-    font-size: 0.8rem;
-  }
+.github-dp {
+border-radius: 40px;
+width: 100%;
+height: 100%;
+max-width: 150px;
+margin: 0 auto;
+position: absolute;
+top: -68px;
+left: 0;
+right: 0;
+display: -webkit-box;
+display: -ms-flexbox;
+display: flex;
+-webkit-box-align: start;
+    -ms-flex-align: start;
+        align-items: flex-start;
+-webkit-box-pack: center;
+    -ms-flex-pack: center;
+        justify-content: center;
+-webkit-transition: 0.3s all ease-in;
+-o-transition: 0.3s all ease-in;
+transition: 0.3s all ease-in;
 }
 
-@media (max-width: 767px) {
-  .row {
-    padding-left: 15px;
-    padding-right: 15px;
-  }
+.github-dp canvas {
+display: block;
+width: 100%;
+background-position: center center;
+background-size: cover;
+background-repeat: repeat;
+border-radius: 50%;
+border: 1px solid #000;
 }
 
-@media (max-width: 550px) {
-  .footer-block {
-    margin: 0.5rem auto;
-  }
-  .w-full {
-    height: auto;
-  }
+.github-name {
+display: block;
+text-align: center;
+z-index: 2;
+position: relative;
+    margin-top: 1px;
 }
 
-@media (max-width: 425px) {
-  .card-title {
-    font-size: 1.5rem;
-  }
+.github-name h2 {
+  margin: 2px auto;
+    font-size: 20px;
+  letter-spacing: 0.5px;
+  line-height: 1;
+  color: #2d303a;
+  margin: 0;
 }
+
+.github-name h2 span {
+display: block;
+font-size: 13px;
+line-height: 1;
+letter-spacing: 0.5px;
+margin-top: 5px;
+font-weight: 400;
+}
+
+.github-followers-wrap {
+display: -webkit-box;
+display: -ms-flexbox;
+display: flex;
+-webkit-box-align: center;
+    -ms-flex-align: center;
+        align-items: center;
+-webkit-box-pack: center;
+    -ms-flex-pack: center;
+        justify-content: center;
+z-index: 5;
+position: relative;
+}
+
+
+.github-follow h2 span {
+color: #666;
+font-size: 13px;
+display: block;
+margin-top: 5px;
+font-weight: 300;
+}
+.github-button {
+  padding: 2px;
+display: block;
+z-index: 2;
+position: relative;
+    margin-bottom: 20px;
+}
+
+.github-button a {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 240px;
+  height: 50px;
+  background: #e8c411;
+  color: #000;
+  margin: 0 auto;
+  border-radius: 40em;
+  font-size: 15px;
+  font-weight: 600;
+  text-decoration: none;
+  -webkit-transition: 0.3s all ease-in;
+  -o-transition: 0.3s all ease-in;
+  transition: 0.3s all ease-in;
+}
+
+.github-bio p {
+font-size: 14px;
+line-height: 20px;
+color: #666;
+text-align: left;
+display: block;
+scroll-behavior: auto;
+}
+
+.github-details {
+display: block;
+padding: 100px 30px 20px;
+position: relative;
+}
+
