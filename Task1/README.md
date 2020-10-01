@@ -14,18 +14,29 @@
   .... other people code ....
   
 
-        <div class="col-md-2 my-12 mx-auto p-relative bg-white shadow-1 blue-hover mycard mycard"
-                style="width: 360px; overflow: hidden; border-radius: 1px;">
-                <img src="./img/useusername.jpg" class="pic w-full">
-
-                <div class="card-body">
-                    <h5 class="card-title text-center">Enter Your Name</h5>
-                    <div class="text-center">
-                        <a href="Your Github Home URL"><i class="fa wp-icon fa-github fa-2x"></i></a>
-                        <a href="Your LinkedIn Profile URL"><i class="fa wp-icon fa-linkedin fa-2x"></i></a>
+            <div class="github-main col-md-3 col-sm-6 my-12 mx-auto p-relative starting-div">
+                <div class="github-wrapper">
+                  <div class="github-banner">
+                    <canvas width="320" height="200" style="background-image: url(./img/banner.jpg)"></canvas>
+                  </div>
+                  <div class="github-details">
+                    <div class="github-dp">
+                      <canvas width="150" height="150" style="background-image: url('./img/username.jpg');"></canvas>
                     </div>
+                    <div class="github-name">
+                      <h2><b>Name</b><span>Status</span></h2>
+                    </div>
+                    <div class="github-button">
+                      <a href="<your portfolio link>">Portfolio</a>
+                    </div>
+                    <div class="github-bio">
+                      <p style="text-align: center;">Life quote</p>
+                    </div>
+                  </div>
                 </div>
-            </div>
+              </div class = "closing div">
+
+
 <!-- Paste Above this line -->
 
 ```
