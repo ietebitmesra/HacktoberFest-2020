@@ -1,7 +1,7 @@
 
 ## Steps to follow :scroll:
 
-### 0. (a) Fork the Repository to your GitHub 
+###    (a) Fork the Repository to your GitHub 
 ###    (b) Clone the Repository into your machine
 ```$ cd Task1 ```
 
@@ -13,17 +13,19 @@
 
   .... other people code ....
   
-  
-<div class="col-md-2 col-sm-6 my-12 mx-auto p-relative bg-white shadow-1 blue-hover mycard mycard" style="width: 360px; overflow: hidden; border-radius: 1px;">
+
+        <div class="col-md-2 my-12 mx-auto p-relative bg-white shadow-1 blue-hover mycard mycard"
+                style="width: 360px; overflow: hidden; border-radius: 1px;">
                 <img src="./img/useusername.jpg" class="pic w-full">
-                    <div class="card-body">
-                            <h5 class="card-title text-center">Enter Your Name</h5>
-                            <div class="text-center">
-                                <a href="Your Github Home URL"><i class="fa fa-github-square icon fa-3x"></i></a>
-                                <a href="Your LinkedIn Profile URL"><i class="fa fa-linkedin-square fa-3x"></i></a>
-                            </div>
+
+                <div class="card-body">
+                    <h5 class="card-title text-center">Enter Your Name</h5>
+                    <div class="text-center">
+                        <a href="Your Github Home URL"><i class="fa wp-icon fa-github fa-2x"></i></a>
+                        <a href="Your LinkedIn Profile URL"><i class="fa wp-icon fa-linkedin fa-2x"></i></a>
                     </div>
-        </div>
+                </div>
+            </div>
 <!-- Paste Above this line -->
 
 ```
@@ -33,7 +35,7 @@ Make sure to write Your Name, Github URL and Linkedin URL at space provided.
 
 ### 3. Send a PR with `Task1-yourUserName` and wait for it to get merged. 
 
-View Your contribution at: https://helios1101.github.io/HacktoberFest_19/Task1/
+View Your contribution at: https://ietebitmesra.github.io/HacktoberFest-2020/Task1/
 
 ### Humble Request !important
 
