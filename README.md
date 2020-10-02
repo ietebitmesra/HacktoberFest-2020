@@ -17,4 +17,11 @@ https://hacktoberfest.digitalocean.com/
 ## Rules
 To qualify for the official limited edition Hacktoberfest shirt, you must register here and make 4 Pull Requests (PRs) between October 1-31 (in any time zone). PRs can be made to any public repo on GitHub, not only the ones with issues labeled Hacktoberfest. This year, the first 50,000 participants who complete the challenge will earn a T-shirt.
 
-## Tasks : Coming soon
+## Task 1: 
+### Contribution Card
+
+Make your personalised card to show it as your first contribution to the repo. 
+Head over to task 1 for detailed procedure.
+
+
+## Task 2 : Coming Soon 
