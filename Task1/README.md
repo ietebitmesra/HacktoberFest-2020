@@ -34,7 +34,7 @@
                     </div>
                   </div>
                 </div>
-              </div class = "closing div">
+              </div>
 
 
 <!-- Paste Above this line -->
