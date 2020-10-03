@@ -34,7 +34,7 @@ Make sure to write write the link and the name of your image in the space provid
 
 ### 5. Send a PR with `Task2-yourUserNAme`and wait for it to get merged
 
-View Your contribution at: https://ietebitmesra.github.io/HacktoberFest-2020/Task2/
+View Your contribution at: https://ietebitmesra.github.io/HacktoberFest-2020/Task2/calc.html
 
 
 ### Humble Request !important
