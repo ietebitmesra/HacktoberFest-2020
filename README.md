@@ -23,12 +23,4 @@ To qualify for the official limited edition Hacktoberfest shirt, you must regist
 Make your personalised card to show it as your first contribution to the repo. 
 Head over to task 1 for detailed procedure.
 
-
-## Task 2 :
-### Calculator Designing
-
-Edit the css file to showcase your creativity.
-Head over to task 2 for detailed procedure.
-
-
-## Task 3 : Coming Soon...
+## Task 2 : Coming Soon...
