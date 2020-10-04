@@ -5,16 +5,22 @@
 ###    (b) Clone the Repository into your machine
 ```$ cd Task2x ```
 
-### 1. Modify the `cal.css` file according to your creativity.
+### 1. Make a new repository titled as yourusername-task2.
 
 
-### 2. Now, host `calc.html` and `cal.css` on your forked on github repo and take a screenshot of your design and crop your calculator.
+### 2. Make two files `calc.html` and `cal.css` and copy the code from your forked repo to the new repo.
 
 
-### 3. Upload your screenshot in `img folder` as yourusername.jpg.
+### 3. Modify the `cal.css` file according to your creativity.
 
 
-### 4. Now, in calc.html...
+### 4. Now, host `calc.html` and `cal.css` on your new github repo and take a screenshot of your design and crop your calculator.
+
+
+### 5. Upload your screenshot in `img folder` as yourusername.jpg.
+
+
+### 6. Now, in calc.html...
     
     ```Paste the following code where directed in calc.html
     
@@ -32,7 +38,7 @@
 Make sure to write write the link and the name of your image in the space provided.
 
 
-### 5. Send a PR with `Task2-yourUserNAme`and wait for it to get merged
+### 7. Send a PR with `Task2-yourUserNAme`and wait for it to get merged
 
 View Your contribution at: https://ietebitmesra.github.io/HacktoberFest-2020/Task2/calc.html
 
