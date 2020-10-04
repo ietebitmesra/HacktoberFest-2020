@@ -30,4 +30,8 @@ Showcase your creativity by editting the css file and making a basic calc look a
 Head over to task 2 for detailed procedure.
 
 
-## Task 3 : Coming Soon 
+## Task 3 :
+### Bug Hunt and Feature Improv
+
+In this task you are given a hard-coded app that needs to be made dynamic. Also there are
+lots of intentional bugs in there that you need to figure out and fix. 
