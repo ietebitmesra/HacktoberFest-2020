@@ -29,7 +29,7 @@
             <div class="col-md-4 d-flex justify-content-center">
                 <div class="stats-container">
                     <span class="category">Error</span>
-                    <span class="value">02</span>
+                    <span id="error_counter" class="value">0</span>
                 </div>
             </div>
             <div class="col-md-4 d-flex justify-content-center">
@@ -40,7 +40,7 @@
             </div>
         </div>
         <div class="card">
-            <div class="paragraph card-body text-muted">
+            <div class="paragraph card-body text-muted" id="text_container">
                 This is a sample paragraph, that will test your typing speed. As soon as you click generate timer will 
                 start and you need to type whatever appears on this area, to test your typing speed. The three dials above 
                 will show your current typing speed, errors made and accuracy respectively. 
@@ -57,7 +57,7 @@
             <!-- <div class="input-group-prepend">
               <span class="input-group-text" id="inputGroup-sizing-lg">Large</span>
             </div> -->
-            <input type="text" placeholder="Start typing here..." class="form-control inputArea" 
+            <input type="text" id="text_input" placeholder="Start typing here..." class="form-control inputArea" 
                 aria-describedby="inputGroup-sizing-lg">
         </div>          
     </div>
