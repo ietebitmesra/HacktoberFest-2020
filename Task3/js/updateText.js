@@ -1,4 +1,4 @@
-window.onload = function() {
+window.onload = function () {
     var generator = document.getElementById("textGenerator");
     const textContainerDIV = document.getElementById('text_container');
     const textInput = document.getElementById('text_input');
@@ -9,13 +9,17 @@ window.onload = function() {
         "nient eletter ree treet ene eler neerit neer tree eler nient teel nient lier ener lent ener tell teen nient ree nient lettine",
         "let nient ret iner rel ree lier let neer rent elette let ine neerine nient teen ene relie ree teen elet ine ree elet reet teen"
     ]
-    currentText = randomText[null];
 
-    generator.onclick = function() {
-        currentText.split('').forEach(character => { 
-            const charSpan = document.createElement('span') 
-            charSpan.innerText = character 
-          }) 
+    generator.onclick = function () {
+        let textLength = Math.floor(Math.random() * (randomText.length));
+        currentText = randomText[textLength];
+        textContainerDIV.innerText = ''
+        currentText.split('').forEach(character => {
+            const charSpan = document.createElement('span')
+            //console.log(character);
+            charSpan.innerText = character
+            textContainerDIV.append(charSpan)
+        })
     }
 
     // code for error count
@@ -29,7 +33,7 @@ window.onload = function() {
             if (textContainerWords[lastIndex]) {
                 if (lastWord !== textContainerWords[lastIndex])
                     errorCount++;
-            }else errorCount++;
+            } else errorCount++;
             errorCounterSPAN.innerText = errorCount;
         }
     }
