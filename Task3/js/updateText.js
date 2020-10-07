@@ -20,6 +20,9 @@ window.onload = function () {
             charSpan.innerText = character
             textContainerDIV.append(charSpan)
         })
+
+        let textInput = document.getElementById('text_input');
+        textInput.value = "";
     }
 
     // code for error count
