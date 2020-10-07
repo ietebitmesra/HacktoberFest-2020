@@ -34,9 +34,7 @@ window.onload = function () {
         inputWords.forEach((char, index) => {
              
             let typedChar = textContainerWords[index] 
-            console.log(typedChar);
-            console.log(char);
-
+            
             if(typedChar !== char) { 
                     errorCount++;
              } 
