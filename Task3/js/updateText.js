@@ -16,7 +16,6 @@ window.onload = function () {
     generator.onclick = function () {
         let textLength = Math.floor(Math.random() * (randomText.length));
         currentText = randomText[textLength];
-
         textInput.value = ''
         errorCounterSPAN.innerText = 0
         accuracyCounterSPAN.innerText = 100+'%' 
@@ -70,6 +69,5 @@ window.onload = function () {
             accuracyCounterSPAN.innerText = Math.round(accuracy)+'%'; 
 
         }
-
 
 }
