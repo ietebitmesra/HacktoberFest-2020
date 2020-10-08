@@ -17,13 +17,18 @@ window.onload = function () {
     generator.onclick = function () {
         let textLength = Math.floor(Math.random() * (randomText.length));
         currentText = randomText[textLength];
+       
+        textInput.value = ''
         textContainerDIV.innerText = ''
         currentText.split('').forEach(character => {
             const charSpan = document.createElement('span')
+            //console.log(character);
+
             charSpan.innerText = character
             textContainerDIV.append(charSpan)
         })
     }
+
 
     // code for error count and accuracy
      textInput.onkeypress = () => {
@@ -49,16 +54,4 @@ window.onload = function () {
        
         }
 
-
 }
-
-
-
- 
- 
-
-
-
-
-
-

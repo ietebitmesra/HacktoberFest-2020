@@ -15,7 +15,11 @@ A month-long celebration from October 1st to October 31st presented by Digital O
 https://hacktoberfest.digitalocean.com/
 
 ## Rules
-To qualify for the official limited edition Hacktoberfest shirt, you must register here and make 4 Pull Requests (PRs) between October 1-31 (in any time zone). PRs can be made to any public repo on GitHub, not only the ones with issues labeled Hacktoberfest. This year, the first 50,000 participants who complete the challenge will earn a T-shirt.
+To earn your Hacktoberfest tee or tree reward, you must register and make four valid pull requests (PRs) between October 1-31 (in any time zone). PRs can be made to participating public repos on GitHub, those that have the Hacktoberfest topic. If a maintainer reports your pull request as spam or behavior not in line with the project’s code of conduct, you will be ineligible to participate. This year, the first 70,000 participants who successfully complete the challenge will be eligible to receive a prize.
+
+Read the [participation details](https://hacktoberfest.digitalocean.com/details) to learn how to earn your Hacktoberfest tee or tree reward.
+
+
 
 ## Task 1: 
 ### Contribution Card
