@@ -2,69 +2,69 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Typing Test</title>
-    <!-- <link rel="stylesheet" href="css/keyboard.css"> -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/keyboard.css">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Typing Test</title>
+  <!-- <link rel="stylesheet" href="css/keyboard.css"> -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/keyboard.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 
 <body>
-    <!-- <div class="container header">
+  <!-- <div class="container header">
         <h1>Typing Test w/ HTML, CSS & JS</h1>
     </div> -->
-    <div class="container">
-        <div class="row header">
-            <h1>Typing Test w/ HTML, CSS & JS</h1>
+  <div class="container">
+    <div class="row header">
+      <h1>Typing Test w/ HTML, CSS & JS</h1>
+    </div>
+    <div class="row pb-5">
+      <div class="col-md-4 d-flex justify-content-center">
+        <div class="stats-container">
+          <span class="category">Speed</span>
+          <span class="value">50 WPM</span>
         </div>
-        <div class="row pb-5">
-            <div class="col-md-4 d-flex justify-content-center">
-                <div class="stats-container">
-                    <span class="category">Speed</span>
-                    <span class="value">50 WPM</span>
-                </div>
-            </div>
-            <div class="col-md-4 d-flex justify-content-center">
-                <div class="stats-container">
-                    <span class="category">Error</span>
-                    <span id="error_counter" class="value">0</span>
-                </div>
-            </div>
-            <div class="col-md-4 d-flex justify-content-center">
-                <div class="stats-container">
-                    <span class="category">Accuracy</span>
-                    <span class="value">80%</span>
-                </div>
-            </div>
+      </div>
+      <div class="col-md-4 d-flex justify-content-center">
+        <div class="stats-container">
+          <span class="category">Error</span>
+          <span id="error_counter" class="value">0</span>
         </div>
-        <div class="card">
-            <div class="paragraph card-body text-muted" id="text_container">
-                This is a sample paragraph, that will test your typing speed. As soon as you click generate timer will
-                start and you need to type whatever appears on this area, to test your typing speed. The three dials
-                above
-                will show your current typing speed, errors made and accuracy respectively.
-            </div>
+      </div>
+      <div class="col-md-4 d-flex justify-content-center">
+        <div class="stats-container">
+          <span class="category">Accuracy</span>
+          <span class="value">80%</span>
         </div>
-        <div class="py-2 butun">
-            <button class="btn btn-primary" id="textGenerator">Generate</button>
-        </div>
-        <!-- <div class="row">
+      </div>
+    </div>
+    <div class="card">
+      <div class="paragraph card-body text-muted" id="text_container">
+        In this area some text will appear that you can use to test your typing speed. As soon as you click the Generate
+        button, the timer will start. While the timer runs, you will type in the empty area below whatever text appears here,
+        to test your typing speed. The three dials above will show your current typing speed, errors made and accuracy
+        respectively. Click the Stop time button immediately when you finish typing
+      </div>
+    </div>
+    <div class="py-2 butun">
+      <button class="btn btn-primary" id="textGenerator">Generate</button>
+    </div>
+    <!-- <div class="row">
             <textarea class="inputArea" placeholder="Start typing here..." oninput="processCurrentText()" onfocus="startTest()"> 
             </textarea> 
         </div> -->
-        <div class="input-group input-group-lg">
-            <!-- <div class="input-group-prepend">
+    <div class="input-group input-group-lg">
+      <!-- <div class="input-group-prepend">
               <span class="input-group-text" id="inputGroup-sizing-lg">Large</span>
             </div> -->
-            <textarea type="text" id="text_input" rows="6" placeholder="Start typing here..."
-                class="form-control inputArea" aria-describedby="inputGroup-sizing-lg"></textarea>
-        </div>
+      <textarea type="text" id="text_input" rows="6" placeholder="Start typing here..." class="form-control inputArea"
+        aria-describedby="inputGroup-sizing-lg"></textarea>
     </div>
-    <script src="js/updateText.js"></script>
+  </div>
+  <script src="js/updateText.js"></script>
 </body>
 
 </html>
