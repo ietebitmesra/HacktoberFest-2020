@@ -1,73 +1,87 @@
-@import url('https://fonts.googleapis.com/css2?family=Ubuntu&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Ubuntu&display=swap");
 
 body {
-    margin: 0;
-    padding: 0;
-    font-size: 16px;
-    line-height: 1.5;
-    text-rendering: optimizeLegibility;
-    font-variant-ligatures: none;
-    box-sizing: border-box;
-    font-family: 'Ubuntu';
-    background-color: #f4efef;
- }
+  margin: 0;
+  padding: 0;
+  font-size: 16px;
+  line-height: 1.5;
+  text-rendering: optimizeLegibility;
+  font-variant-ligatures: none;
+  box-sizing: border-box;
+  font-family: "Ubuntu";
+  background-color: #f4efef;
+}
 
- .header {
-    align-items: center;
-    justify-content: center;
-    color: #555555;
-    padding: 50px;
- }
+.header {
+  align-items: center;
+  justify-content: center;
+  color: #555555;
+  padding: 50px;
+}
 
- .stats-container {
-    display: block;
-    height: 100px;
-    width: 200px;
-    margin: 8px;
-    padding: 12px;
-    border-radius: 20%;
-    background-color: darkgrey;
-    box-shadow: rgb(0,0,0,0.5) 5px 8px 5px;
- }
+.timer-container {
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  padding-bottom: 30px;
+}
 
- .category {
-     display: flex;
-     justify-content: center;
-     align-items: center;
-     font-size: large;
-     /* padding-bottom: 5px; */
-     font-weight: bold;
- }
+.stats-container {
+  display: block;
+  height: 100px;
+  width: 200px;
+  margin: 8px;
+  padding: 12px;
+  border-radius: 20%;
+  background-color: darkgrey;
+  box-shadow: rgb(0, 0, 0, 0.5) 5px 8px 5px;
+}
 
- .value {
-     display: flex;
-     justify-content: center;
-     align-items: center;
-     font-size: xx-large;
- }
+.category {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: large;
+  /* padding-bottom: 5px; */
+  font-weight: bold;
+}
 
- .paragraph {
-     text-align: center;
-     font-size: x-large;
-     font-weight: bold;
-     font-family: monospace;
- }
+.value {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: xx-large;
+}
 
- .butun {
-     display: flex;
-     justify-content: center;
-     align-items: center;
- }
+.paragraph {
+  text-align: center;
+  font-size: x-large;
+  font-weight: bold;
+  font-family: monospace;
+}
+
+.butun {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
  .inputArea {
      margin-top: 2rem;
      padding-top: 5rem;
  }
 
- @media (max-width: 375px) {
-     .category {
-         display: flex;
-         align-items: center;
-         justify-content: center;
-     }
- }
+.stop-time {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 5px;
+}
+
+@media (max-width: 375px) {
+  .category {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
