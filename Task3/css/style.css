@@ -66,10 +66,10 @@ body {
   align-items: center;
 }
 
-.inputArea {
-  margin-top: 5rem;
-  padding-top: 5rem;
-}
+ .inputArea {
+     margin-top: 2rem;
+     padding-top: 5rem;
+ }
 
 .stop-time {
   display: flex;

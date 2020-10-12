@@ -14,31 +14,38 @@
 </head>
 
 <body>
-  <!-- <div class="container header">
-        <h1>Typing Test w/ HTML, CSS & JS</h1>
-    </div> -->
-  <div class="container">
-    <div class="row header">
-      <h1>Typing Test w/ HTML, CSS & JS</h1>
-    </div>
-    <div class="timer-container">
-      <h3>Time elapsed: <span id="time-elapsed">
-          <label id="hours-passed">00</label>:<label id="minutes-passed">00</label>:<label
-            id="seconds-passed">00</label>
-        </span></h3>
-
-    </div>
-    <div class="row pb-5">
-      <div class="col-md-4 d-flex justify-content-center">
-        <div class="stats-container">
-          <span class="category">Speed</span>
-          <span class="value">50 WPM</span>
+    <div class="container">
+        <div class="row header">
+            <h1>Typing Test w/ HTML, CSS & JS</h1>
         </div>
-      </div>
-      <div class="col-md-4 d-flex justify-content-center">
-        <div class="stats-container">
-          <span class="category">Error</span>
-          <span id="error_counter" class="value">0</span>
+        <div class="row pb-5">
+            <div class="col-md-4 d-flex justify-content-center">
+                <div class="stats-container">
+                    <span class="category">Speed</span>
+                    <span class="value">50 WPM</span>
+                </div>
+            </div>
+            <div class="col-md-4 d-flex justify-content-center">
+                <div class="stats-container">
+                    <span class="category">Error</span>
+                    <span id="error_counter" class="value">0</span>
+                </div>
+            </div>
+            <div class="col-md-4 d-flex justify-content-center">
+                <div class="stats-container">
+                    <span class="category">Accuracy</span>
+                    <span id="accuracy_counter" class="value">100%</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="paragraph card-body text-muted" id="text_container">
+                In this area some text will appear that you can use to test your typing speed. As soon as you click the Generate
+                button, the timer will start. While the timer runs, you will type in the empty area below whatever text appears here,
+                to test your typing speed. The three dials above will show your current typing speed, errors made and accuracy
+                respectively. Click the Stop time button immediately when you finish typing
+            </div>
         </div>
       </div>
       <div class="col-md-4 d-flex justify-content-center">
@@ -46,6 +53,7 @@
           <span class="category">Accuracy</span>
           <span id="accuracy_counter" class="value">100%</span>
         </div>
+<<<<<<< HEAD
       </div>
     </div>
     <div class="card">
@@ -72,6 +80,13 @@
     </div>
     <div class="stop-time">
       <button class="btn btn-primary" id="stop-time-button">Stop time</button>
+=======
+
+        <div class="input-group input-group-lg">
+            <textarea type="text" id="text_input" rows="6" placeholder="Start typing here..." class="form-control inputArea"
+            aria-describedby="inputGroup-sizing-lg"></textarea>
+        </div>
+>>>>>>> 15d4bba1cb92fa442b5e28a2922491bd37a73543
     </div>
   </div>
   <script src="js/updateText.js"></script>
