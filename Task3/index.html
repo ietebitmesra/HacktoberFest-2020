@@ -18,6 +18,13 @@
         <div class="row header">
             <h1>Typing Test w/ HTML, CSS & JS</h1>
         </div>
+        <div class="show-time">
+          <h3>Time elapsed: <span id="time-elapsed">
+              <label id="hours-passed">00</label>:<label id="minutes-passed">00</label>:<label
+                id="seconds-passed">00</label>
+            </span>
+          </h3>
+        </div>
         <div class="row pb-5">
             <div class="col-md-4 d-flex justify-content-center">
                 <div class="stats-container">
@@ -54,6 +61,9 @@
         <div class="input-group input-group-lg">
             <textarea type="text" id="text_input" rows="6" placeholder="Start typing here..." class="form-control inputArea"
             aria-describedby="inputGroup-sizing-lg"></textarea>
+        </div>
+        <div class="stop-time">
+          <button class="btn btn primary" id="stop-time-button">Stop time</button>
         </div>
     </div>
     <script src="js/updateText.js"></script>
