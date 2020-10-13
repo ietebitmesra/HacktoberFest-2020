@@ -27,6 +27,8 @@ window.onload = function () {
     "The most beautiful experience we can have is the mysterious. It is the fundamental emotion that stands at the cradle of true art and true science.",
     "We keep moving forward, opening new doors, and doing new things, because we’re curious and curiosity keeps leading us down new paths.",
   ];
+  
+  
   generator.onclick = function () {
     let textLength = Math.floor(Math.random() * randomText.length);
     currentText = randomText[textLength];
@@ -51,19 +53,19 @@ window.onload = function () {
       textContainerDIV.append(charSpan);
 
       // add the code to start the timer when the 'Generate' button is clicked
-      runTime();
+      generator = runTime();
     });
   };
 
+  
+
   // code for error count and accuracy
   textInput.onkeypress = () => {
-    charTyped++;
+    ++charTyped;
     textContainerWords = textContainerDIV.innerText.split("");
     inputWords = textInput.value.split("");
     str = "";
-
-    if (textInput.value.localeCompare(textContainerDIV.innerText) == 0)
-      alert(" Congratulations on completing the typing test. ");
+  
 
     inputWords.forEach((char, index) => {
       let typedChar = textContainerWords[index];
@@ -87,6 +89,8 @@ window.onload = function () {
     errorCount = 0;
     console.log(total_errors);
     accuracyCounterSPAN.innerText = Math.round(accuracy) + "%";
+
+  
   };
 };
 
@@ -116,6 +120,8 @@ function runTime() {
     document.querySelector("#minutes-passed").innerHTML = totalMinutes;
     document.querySelector("#seconds-passed").innerHTML = totalSeconds;
   }, 1000);
+
+  
   // code to stop running time if button is clicked
   var stopButton = document.getElementById("stop-time-button");
   stopButton.addEventListener("click", function (e) {
