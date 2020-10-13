@@ -58,9 +58,8 @@ window.onload = function () {
       // add the code to start the timer when the 'Generate' button is clicked
       generator = runTime();
     });
-    // add the code to start the timer when the 'Generate' button is clicked
-    runSeconds=0;
-    runTime();
+      runSeconds=0;
+      runTime();
   };
 
   
@@ -115,7 +114,7 @@ function formatTime(num) {
 
   function runTime() {
   
-  
+    let runSeconds = 0;
     let countTime = setInterval(() => {
       ++runSeconds;
   
@@ -135,10 +134,6 @@ function formatTime(num) {
     // code to stop running time if button is clicked
     var stopButton = document.getElementById("stop-time-button");
     stopButton.addEventListener("click", function (e) {
-      e.preventDefault();
-      clearInterval(countTime);
-    });
-    generator.addEventListener("click", function (e) {
       e.preventDefault();
       clearInterval(countTime);
       document.querySelector("#hours-passed").innerHTML = formatTime(0);
