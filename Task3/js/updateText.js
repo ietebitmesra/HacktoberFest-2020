@@ -29,6 +29,8 @@ window.onload = function () {
     "The most beautiful experience we can have is the mysterious. It is the fundamental emotion that stands at the cradle of true art and true science.",
     "We keep moving forward, opening new doors, and doing new things, because we’re curious and curiosity keeps leading us down new paths.",
   ];
+  
+  
   generator.onclick = function () {
     let textLength = Math.floor(Math.random() * randomText.length);
     currentText = randomText[textLength];
@@ -52,21 +54,24 @@ window.onload = function () {
 
       charSpan.innerText = character;
       textContainerDIV.append(charSpan);
-       
+
+      // add the code to start the timer when the 'Generate' button is clicked
+      generator = runTime();
     });
     // add the code to start the timer when the 'Generate' button is clicked
     runSeconds=0;
     runTime();
   };
 
+  
+
   // code for error count and accuracy
   textInput.onkeypress = () => {
-    charTyped++;
+    ++charTyped;
     textContainerWords = textContainerDIV.innerText.split("");
     inputWords = textInput.value.split("");
 
-    if (textInput.value.localeCompare(textContainerDIV.innerText) == 0)
-      alert(" Congratulations on completing the typing test. ");
+    str = "";
 
     inputWords.forEach((char, index) => {
       let typedChar = textContainerWords[index];
@@ -108,7 +113,6 @@ function formatTime(num) {
 }
 
 
-
   function runTime() {
   
   
@@ -143,3 +147,4 @@ function formatTime(num) {
     });
   }
 };
+
