@@ -1,4 +1,4 @@
-<<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -29,7 +29,7 @@
             <div class="col-md-4 d-flex justify-content-center">
                 <div class="stats-container">
                     <span class="category">Speed</span>
-                    <span class="value">50 WPM</span>
+                    <span id="wpm_counter" class="value">50 WPM</span>
                 </div>
             </div>
             <div class="col-md-4 d-flex justify-content-center">
@@ -54,9 +54,12 @@
                 respectively. Click the Stop time button immediately when you finish typing
             </div>
         </div>
+    
         <div class="py-2 butun">
             <button class="btn btn-primary" id="textGenerator">Generate</button>
         </div>
+
+
 
         <div class="input-group input-group-lg">
             <textarea type="text" id="text_input" rows="6" placeholder="Start typing here..." class="form-control inputArea"

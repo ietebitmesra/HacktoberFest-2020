@@ -4,6 +4,8 @@ window.onload = function () {
   const textInput = document.getElementById("text_input");
   const errorCounterSPAN = document.getElementById("error_counter");
   const accuracyCounterSPAN = document.getElementById("accuracy_counter");
+  const wordsperminuteSPAN = document.getElementById("wpm_counter");
+
   var errorCount = 0;
   var temp_mistakes = 0;
   var total_errors = 0;
@@ -27,6 +29,8 @@ window.onload = function () {
     "The most beautiful experience we can have is the mysterious. It is the fundamental emotion that stands at the cradle of true art and true science.",
     "We keep moving forward, opening new doors, and doing new things, because we’re curious and curiosity keeps leading us down new paths.",
   ];
+  
+  
   generator.onclick = function () {
     let textLength = Math.floor(Math.random() * randomText.length);
     currentText = randomText[textLength];
@@ -37,6 +41,7 @@ window.onload = function () {
     textInput.value = "";
     errorCounterSPAN.innerText = 0;
     accuracyCounterSPAN.innerText = 100 + "%";
+    wordsperminuteSPAN.innerText = 0 + " WPM" ;
     textContainerDIV.innerText = "";
     total_errors = 0;
     charTyped = 0;
@@ -50,20 +55,21 @@ window.onload = function () {
       charSpan.innerText = character;
       textContainerDIV.append(charSpan);
 
-      // add the code to start the timer when the 'Generate' button is clicked
-      runTime();
+      
     });
+    // add the code to start the timer when the 'Generate' button is clicked
+      runSeconds=0;
+      runTime();
   };
+
+  
 
   // code for error count and accuracy
   textInput.onkeypress = () => {
-    charTyped++;
+    ++charTyped;
     textContainerWords = textContainerDIV.innerText.split("");
     inputWords = textInput.value.split("");
-    str = "";
 
-    if (textInput.value.localeCompare(textContainerDIV.innerText) == 0)
-      alert(" Congratulations on completing the typing test. ");
 
     inputWords.forEach((char, index) => {
       let typedChar = textContainerWords[index];
@@ -79,17 +85,23 @@ window.onload = function () {
     errorCounterSPAN.innerText = errorCount;
     if (errorCount > temp_mistakes) {
       total_errors++;
-      //errorCount = temp_mistakes;
-      //total_errors+=temp_mistakes;
     }
     let accuracy = ((charTyped - total_errors) / charTyped) * 100;
     temp_mistakes = errorCount;
     errorCount = 0;
-    console.log(total_errors);
-    accuracyCounterSPAN.innerText = Math.round(accuracy) + "%";
-  };
-};
 
+    accuracyCounterSPAN.innerText = Math.round(accuracy) + "%";
+    
+    if(runSeconds)
+      wpm= (((charTyped/5) - total_errors)*60)/(runSeconds);
+
+    if(wpm < 0 || runSeconds === 0)
+    wordsperminuteSPAN.innerText = "0 WPM";
+    else
+    wordsperminuteSPAN.innerText = Math.round(wpm) + " WPM";
+  };
+
+  var runSeconds = 0;
 // function for digital formating of time
 function formatTime(num) {
   if (num < 10) {
@@ -98,31 +110,34 @@ function formatTime(num) {
   return num;
 }
 
-// code for running time in seconds
-function runTime() {
-  let runSeconds = 0;
-  let countTime = setInterval(() => {
-    ++runSeconds;
 
-    let totalSeconds = runSeconds % 60;
-    let totalHours = Math.floor(runSeconds / 3600);
-    let totalMinutes = Math.floor(runSeconds / 60 - totalHours * 60);
+  function runTime() {
+  
+    let countTime = setInterval(() => {
+      ++runSeconds;
+  
+      let totalSeconds = runSeconds % 60;
+      let totalHours = Math.floor(runSeconds / 3600);
+      let totalMinutes = Math.floor(runSeconds / 60 - totalHours * 60);
+      
+  
+      totalHours = formatTime(totalHours);
+      totalMinutes = formatTime(totalMinutes);
+      totalSeconds = formatTime(totalSeconds);
+      // Displaying the counter in the timer view
+      document.querySelector("#hours-passed").innerHTML = totalHours;
+      document.querySelector("#minutes-passed").innerHTML = totalMinutes;
+      document.querySelector("#seconds-passed").innerHTML = totalSeconds;
+    }, 1000);
+    // code to stop running time if button is clicked
+    var stopButton = document.getElementById("stop-time-button");
+    stopButton.addEventListener("click", function (e) {
+      e.preventDefault();
+      clearInterval(countTime);
+      document.querySelector("#hours-passed").innerHTML = formatTime(0);
+      document.querySelector("#minutes-passed").innerHTML = formatTime(0);
+      document.querySelector("#seconds-passed").innerHTML = formatTime(0);
+    });
+  }
+};
 
-    totalHours = formatTime(totalHours);
-    totalMinutes = formatTime(totalMinutes);
-    totalSeconds = formatTime(totalSeconds);
-    // Displaying the counter in the timer view
-    document.querySelector("#hours-passed").innerHTML = totalHours;
-    document.querySelector("#minutes-passed").innerHTML = totalMinutes;
-    document.querySelector("#seconds-passed").innerHTML = totalSeconds;
-  }, 1000);
-  // code to stop running time if button is clicked
-  var stopButton = document.getElementById("stop-time-button");
-  stopButton.addEventListener("click", function (e) {
-    e.preventDefault();
-    clearInterval(countTime);
-    document.querySelector("#hours-passed").innerHTML = formatTime(0);
-    document.querySelector("#minutes-passed").innerHTML = formatTime(0);
-    document.querySelector("#seconds-passed").innerHTML = formatTime(0);
-  });
-}
