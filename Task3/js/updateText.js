@@ -55,9 +55,9 @@ window.onload = function () {
       charSpan.innerText = character;
       textContainerDIV.append(charSpan);
 
-      // add the code to start the timer when the 'Generate' button is clicked
-      generator = runTime();
+      
     });
+    // add the code to start the timer when the 'Generate' button is clicked
       runSeconds=0;
       runTime();
   };
@@ -70,7 +70,6 @@ window.onload = function () {
     textContainerWords = textContainerDIV.innerText.split("");
     inputWords = textInput.value.split("");
 
-    str = "";
 
     inputWords.forEach((char, index) => {
       let typedChar = textContainerWords[index];
@@ -114,7 +113,6 @@ function formatTime(num) {
 
   function runTime() {
   
-    let runSeconds = 0;
     let countTime = setInterval(() => {
       ++runSeconds;
   
