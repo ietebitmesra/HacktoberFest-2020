@@ -1,5 +1,11 @@
 @import url("https://fonts.googleapis.com/css2?family=Ubuntu&display=swap");
 
+*{
+  margin:0;
+  padding:0;
+  box-sizing: border-box;
+}
+
 body {
   margin: 0;
   padding: 0;
@@ -16,22 +22,19 @@ body {
   align-items: center;
   justify-content: center;
   color: #555555;
-  padding: 50px;
+  padding: 1em;
 }
 
 .timer-container {
   margin: 0 auto;
   display: flex;
   justify-content: center;
-  padding-bottom: 30px;
 }
 
 .stats-container {
   display: block;
-  height: 100px;
-  width: 200px;
-  margin: 8px;
-  padding: 12px;
+  min-width: 20vw;
+  padding: 0.8rem;
   border-radius: 20%;
   background-color: darkgrey;
   box-shadow: rgb(0, 0, 0, 0.5) 5px 8px 5px;
@@ -50,7 +53,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: xx-large;
+  font-size: x-large;
 }
 
 .paragraph {
