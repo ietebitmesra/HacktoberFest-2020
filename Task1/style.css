@@ -287,6 +287,10 @@ position: relative;
   transition: 0.3s all ease-in;
 }
 
+.github-button a:hover {
+  background-color: rgba(232, 196, 17, 0.8);
+}
+
 .github-bio p {
 font-size: 14px;
 line-height: 20px;
