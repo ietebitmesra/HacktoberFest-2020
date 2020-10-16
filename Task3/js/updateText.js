@@ -36,7 +36,8 @@ let currentText;
     document.querySelector("#hours-passed").innerHTML = formatTime(0);
     document.querySelector("#minutes-passed").innerHTML = formatTime(0);
     document.querySelector("#seconds-passed").innerHTML = formatTime(0);
-    
+    clearInterval(countTime);
+
     let textLength = Math.floor(Math.random() * randomText.length);
     currentText = randomText[textLength];
     while (currentText == textContainerDIV.innerText) {
