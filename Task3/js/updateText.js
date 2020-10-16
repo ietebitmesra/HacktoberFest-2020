@@ -29,9 +29,14 @@ window.onload = function () {
     "The most beautiful experience we can have is the mysterious. It is the fundamental emotion that stands at the cradle of true art and true science.",
     "We keep moving forward, opening new doors, and doing new things, because we’re curious and curiosity keeps leading us down new paths.",
   ];
-  
-  
+
+let currentText;
+
   generator.onclick = function () {
+    document.querySelector("#hours-passed").innerHTML = formatTime(0);
+    document.querySelector("#minutes-passed").innerHTML = formatTime(0);
+    document.querySelector("#seconds-passed").innerHTML = formatTime(0);
+    
     let textLength = Math.floor(Math.random() * randomText.length);
     currentText = randomText[textLength];
     while (currentText == textContainerDIV.innerText) {
@@ -55,14 +60,15 @@ window.onload = function () {
       charSpan.innerText = character;
       textContainerDIV.append(charSpan);
 
-      
+
     });
     // add the code to start the timer when the 'Generate' button is clicked
       runSeconds=0;
       runTime();
-  };
 
-  
+
+
+
 
   // code for error count and accuracy
   textInput.onkeypress = () => {
@@ -91,7 +97,7 @@ window.onload = function () {
     errorCount = 0;
 
     accuracyCounterSPAN.innerText = Math.round(accuracy) + "%";
-    
+
     if(runSeconds)
       wpm= (((charTyped/5) - total_errors)*60)/(runSeconds);
 
@@ -99,8 +105,21 @@ window.onload = function () {
     wordsperminuteSPAN.innerText = "0 WPM";
     else
     wordsperminuteSPAN.innerText = Math.round(wpm) + " WPM";
-  };
 
+
+    //stop the time when finished writing
+
+    let inputLength = textInput.value.length+1
+
+
+    if(textContainerDIV.innerText.length === inputLength){
+          clearInterval(countTime);
+    }
+
+
+
+  };
+  };
   var runSeconds = 0;
 // function for digital formating of time
 function formatTime(num) {
@@ -109,18 +128,18 @@ function formatTime(num) {
   }
   return num;
 }
-
+let countTime;
 
   function runTime() {
-  
-    let countTime = setInterval(() => {
+
+     countTime = setInterval(() => {
       ++runSeconds;
-  
+
       let totalSeconds = runSeconds % 60;
       let totalHours = Math.floor(runSeconds / 3600);
       let totalMinutes = Math.floor(runSeconds / 60 - totalHours * 60);
-      
-  
+
+
       totalHours = formatTime(totalHours);
       totalMinutes = formatTime(totalMinutes);
       totalSeconds = formatTime(totalSeconds);
@@ -129,15 +148,6 @@ function formatTime(num) {
       document.querySelector("#minutes-passed").innerHTML = totalMinutes;
       document.querySelector("#seconds-passed").innerHTML = totalSeconds;
     }, 1000);
-    // code to stop running time if button is clicked
-    var stopButton = document.getElementById("stop-time-button");
-    stopButton.addEventListener("click", function (e) {
-      e.preventDefault();
-      clearInterval(countTime);
-      document.querySelector("#hours-passed").innerHTML = formatTime(0);
-      document.querySelector("#minutes-passed").innerHTML = formatTime(0);
-      document.querySelector("#seconds-passed").innerHTML = formatTime(0);
-    });
   }
-};
 
+};
