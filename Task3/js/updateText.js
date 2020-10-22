@@ -32,6 +32,9 @@ window.onload = function () {
 
 let currentText;
 
+//To check for first time key press 
+var firstTimeKeyPress;
+
   generator.onclick = function () {
     document.querySelector("#hours-passed").innerHTML = formatTime(0);
     document.querySelector("#minutes-passed").innerHTML = formatTime(0);
@@ -65,16 +68,19 @@ let currentText;
 
 
     });
-    // add the code to start the timer when the 'Generate' button is clicked
-      runSeconds=0;
-      runTime();
 
-
-
+    //set the boolean to false whenever the Generator is clicked
+    firstTimeKeyPress = false;
 
 
   // code for error count and accuracy
   textInput.onkeypress = () => {
+    //Start the timer when the key is pressed the first time.
+    if(!firstTimeKeyPress){
+      runSeconds = 0;
+      runTime();
+      firstTimeKeyPress=true;
+    }
     ++charTyped;
     textContainerWords = textContainerDIV.innerText.split("");
     inputWords = textInput.value.split("");
