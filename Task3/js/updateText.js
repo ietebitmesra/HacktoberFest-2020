@@ -6,6 +6,7 @@ window.onload = function () {
   const accuracyCounterSPAN = document.getElementById("accuracy_counter");
   const wordsperminuteSPAN = document.getElementById("wpm_counter");
 
+  textInput.disabled = true;
   var errorCount = 0;
   var temp_mistakes = 0;
   var total_errors = 0;
