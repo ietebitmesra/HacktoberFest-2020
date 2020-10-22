@@ -13,8 +13,8 @@ window.onload = function () {
   var randomText = [
     "The creatures outside looked from pig to man, and from man to pig, and from pig to man again; but already it was impossible to say which was which.",
     "Very few castaways can claim to have survived so long at sea as Mr. Patel, and none in the company of an adult Bengal tiger.",
-    "Real courage is when you know you’re licked before you begin, but you begin anyway and see it through no matter what.",
-    "Recovering from suffering is not like recovering from a disease. Many people don’t come out healed; they come out different.",
+    "Real courage is when you know you're licked before you begin, but you begin anyway and see it through no matter what.",
+    "Recovering from suffering is not like recovering from a disease. Many people don't come out healed; they come out different.",
     "It is a great misfortune to be alone, my friends; and it must be believed that solitude can quickly destroy reason",
     "It is late. Kate strolls out of a dark forest. Kate took a leaf for Dad. Kate also took a daffodil for Flor.",
     "You will never change your life until you change something you do daily. The secret of your success is found in your daily routine.",
@@ -27,7 +27,7 @@ window.onload = function () {
     "There are only two ways to live your life. One is as though nothing is a miracle. The other is as though everything is a miracle.",
     "When you are courting a nice girl, an hour seems like a second. When you sit on a red-hot cinder a second seems like an hour. That's relativity.",
     "The most beautiful experience we can have is the mysterious. It is the fundamental emotion that stands at the cradle of true art and true science.",
-    "We keep moving forward, opening new doors, and doing new things, because we’re curious and curiosity keeps leading us down new paths.",
+    "We keep moving forward, opening new doors, and doing new things, because we're curious and curiosity keeps leading us down new paths.",
   ];
 
 let currentText;
@@ -89,7 +89,7 @@ var firstTimeKeyPress;
     inputWords.forEach((char, index) => {
       let typedChar = textContainerWords[index];
 
-      if (typedChar !== char) {
+       if (Symbol(typedChar).toString() !== Symbol(char).toString()) {
         errorCount++;
         textInput.style.color = "#ff0000";
       } else {
