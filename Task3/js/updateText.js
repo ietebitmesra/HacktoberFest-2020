@@ -52,6 +52,8 @@ let currentText;
     total_errors = 0;
     charTyped = 0;
 
+    textInput.disabled = false;
+
     document.getElementById("text_input").setAttribute("rows", "3");
 
     currentText.split("").forEach((character) => {
@@ -115,10 +117,8 @@ let currentText;
 
     if(textContainerDIV.innerText.length === inputLength){
           clearInterval(countTime);
+          textInput.disabled = true;
     }
-
-
-
   };
   };
   var runSeconds = 0;
