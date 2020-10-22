@@ -10,6 +10,9 @@ body {
   box-sizing: border-box;
   font-family: "Ubuntu";
   background-color: #f4efef;
+  -webkit-user-select: none; /*(Chrome/Safari/Opera)*/ 
+-moz-user-select: none;/*(Firefox)*/ 
+-ms-user-select: none;/*(IE/Edge)*/ 
 }
 
 .header {
