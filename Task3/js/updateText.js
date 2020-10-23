@@ -104,7 +104,7 @@ var firstTimeKeyPress;
     }
     let accuracy = ((charTyped - total_errors) / charTyped) * 100;
     temp_mistakes = errorCount;
-    errorCount = 0;
+    errorCount = 0, wpm = 0;
 
     accuracyCounterSPAN.innerText = Math.round(accuracy) + "%";
 
