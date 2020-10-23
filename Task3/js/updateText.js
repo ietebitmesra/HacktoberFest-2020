@@ -5,8 +5,8 @@ window.onload = function () {
   const errorCounterSPAN = document.getElementById("error_counter");
   const accuracyCounterSPAN = document.getElementById("accuracy_counter");
   const wordsperminuteSPAN = document.getElementById("wpm_counter");
+  let textContainerWords;
 
-  textInput.disabled = true;
   var errorCount = 0;
   var temp_mistakes = 0;
   var total_errors = 0;
@@ -66,7 +66,7 @@ var firstTimeKeyPress;
 
       charSpan.innerText = character;
       textContainerDIV.append(charSpan);
-
+      textContainerWords = textContainerDIV.innerText.split("");
 
     });
 
@@ -75,7 +75,7 @@ var firstTimeKeyPress;
 
 
   // code for error count and accuracy
-  textInput.onkeypress = () => {
+  textInput.onkeyup = () => {
     //Start the timer when the key is pressed the first time.
     if(!firstTimeKeyPress){
       runSeconds = 0;
@@ -83,7 +83,6 @@ var firstTimeKeyPress;
       firstTimeKeyPress=true;
     }
     ++charTyped;
-    textContainerWords = textContainerDIV.innerText.split("");
     inputWords = textInput.value.split("");
 
 
@@ -104,7 +103,6 @@ var firstTimeKeyPress;
     }
     let accuracy = ((charTyped - total_errors) / charTyped) * 100;
     temp_mistakes = errorCount;
-    errorCount = 0, wpm = 0;
 
     accuracyCounterSPAN.innerText = Math.round(accuracy) + "%";
 
