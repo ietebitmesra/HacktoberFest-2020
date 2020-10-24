@@ -5,7 +5,9 @@ window.onload = function () {
   const errorCounterSPAN = document.getElementById("error_counter");
   const accuracyCounterSPAN = document.getElementById("accuracy_counter");
   const wordsperminuteSPAN = document.getElementById("wpm_counter");
+  let textContainerWords;
 
+  textInput.disabled = true;
   var errorCount = 0;
   var temp_mistakes = 0;
   var total_errors = 0;
@@ -13,8 +15,8 @@ window.onload = function () {
   var randomText = [
     "The creatures outside looked from pig to man, and from man to pig, and from pig to man again; but already it was impossible to say which was which.",
     "Very few castaways can claim to have survived so long at sea as Mr. Patel, and none in the company of an adult Bengal tiger.",
-    "Real courage is when you know you’re licked before you begin, but you begin anyway and see it through no matter what.",
-    "Recovering from suffering is not like recovering from a disease. Many people don’t come out healed; they come out different.",
+    "Real courage is when you know you're licked before you begin, but you begin anyway and see it through no matter what.",
+    "Recovering from suffering is not like recovering from a disease. Many people don't come out healed; they come out different.",
     "It is a great misfortune to be alone, my friends; and it must be believed that solitude can quickly destroy reason",
     "It is late. Kate strolls out of a dark forest. Kate took a leaf for Dad. Kate also took a daffodil for Flor.",
     "You will never change your life until you change something you do daily. The secret of your success is found in your daily routine.",
@@ -27,10 +29,13 @@ window.onload = function () {
     "There are only two ways to live your life. One is as though nothing is a miracle. The other is as though everything is a miracle.",
     "When you are courting a nice girl, an hour seems like a second. When you sit on a red-hot cinder a second seems like an hour. That's relativity.",
     "The most beautiful experience we can have is the mysterious. It is the fundamental emotion that stands at the cradle of true art and true science.",
-    "We keep moving forward, opening new doors, and doing new things, because we’re curious and curiosity keeps leading us down new paths.",
+    "We keep moving forward, opening new doors, and doing new things, because we're curious and curiosity keeps leading us down new paths.",
   ];
 
-let currentText;
+  let currentText;
+
+  //To check for first time key press
+  var firstTimeKeyPress;
 
   generator.onclick = function () {
     document.querySelector("#hours-passed").innerHTML = formatTime(0);
@@ -47,10 +52,12 @@ let currentText;
     textInput.value = "";
     errorCounterSPAN.innerText = 0;
     accuracyCounterSPAN.innerText = 100 + "%";
-    wordsperminuteSPAN.innerText = 0 + " WPM" ;
+    wordsperminuteSPAN.innerText = 0 + " WPM";
     textContainerDIV.innerText = "";
     total_errors = 0;
     charTyped = 0;
+
+    textInput.disabled = false;
 
     document.getElementById("text_input").setAttribute("rows", "3");
 
@@ -60,86 +67,75 @@ let currentText;
 
       charSpan.innerText = character;
       textContainerDIV.append(charSpan);
-
-
+      textContainerWords = textContainerDIV.innerText.split("");
     });
-    // add the code to start the timer when the 'Generate' button is clicked
-      runSeconds=0;
-      runTime();
 
+    //set the boolean to false whenever the Generator is clicked
+    firstTimeKeyPress = false;
 
-
-
-
-  // code for error count and accuracy
-  textInput.onkeypress = () => {
-    ++charTyped;
-    textContainerWords = textContainerDIV.innerText.split("");
-    inputWords = textInput.value.split("");
-
-
-    inputWords.forEach((char, index) => {
-      let typedChar = textContainerWords[index];
-
-      if (typedChar !== char) {
-        errorCount++;
-        textInput.style.color = "#ff0000";
-      } else {
-        textInput.style.color = "#000000";
+    // code for error count and accuracy
+    textInput.onkeyup = () => {
+      //Start the timer when the key is pressed the first time.
+      if (!firstTimeKeyPress) {
+        runSeconds = 0;
+        runTime();
+        firstTimeKeyPress = true;
       }
-    });
+      ++charTyped;
+      inputWords = textInput.value.split("");
 
-    errorCounterSPAN.innerText = errorCount;
-    if (errorCount > temp_mistakes) {
-      total_errors++;
-    }
-    let accuracy = ((charTyped - total_errors) / charTyped) * 100;
-    temp_mistakes = errorCount;
-    errorCount = 0;
+      inputWords.forEach((char, index) => {
+        let typedChar = textContainerWords[index];
 
-    accuracyCounterSPAN.innerText = Math.round(accuracy) + "%";
+        if (Symbol(typedChar).toString() !== Symbol(char).toString()) {
+          errorCount++;
+          textInput.style.color = "#ff0000";
+        } else {
+          textInput.style.color = "#000000";
+        }
+      });
 
-    if(runSeconds)
-      wpm= (((charTyped/5) - total_errors)*60)/(runSeconds);
+      if (errorCount > temp_mistakes) {
+        total_errors++;
+      }
+      let accuracy = ((charTyped - total_errors) / charTyped) * 100;
+      temp_mistakes = errorCount;
+      errorCount = 0;
+      errorCounterSPAN.innerText = total_errors;
+      accuracyCounterSPAN.innerText = Math.round(accuracy) + "%";
 
-    if(wpm < 0 || runSeconds === 0)
-    wordsperminuteSPAN.innerText = "0 WPM";
-    else
-    wordsperminuteSPAN.innerText = Math.round(wpm) + " WPM";
+      if (runSeconds) wpm = ((charTyped / 5 - total_errors) * 60) / runSeconds;
 
+      if (wpm < 0 || runSeconds === 0) wordsperminuteSPAN.innerText = "0 WPM";
+      else wordsperminuteSPAN.innerText = Math.round(wpm) + " WPM";
 
-    //stop the time when finished writing
+      //stop the time when finished writing
 
-    let inputLength = textInput.value.length+1
+      let inputLength = textInput.value.length + 1;
 
-
-    if(textContainerDIV.innerText.length === inputLength){
-          clearInterval(countTime);
-    }
-
-
-
-  };
+      if (textContainerDIV.innerText.length === inputLength) {
+        clearInterval(countTime);
+        textInput.disabled = true;
+      }
+    };
   };
   var runSeconds = 0;
-// function for digital formating of time
-function formatTime(num) {
-  if (num < 10) {
-    num = "0" + num;
+  // function for digital formating of time
+  function formatTime(num) {
+    if (num < 10) {
+      num = "0" + num;
+    }
+    return num;
   }
-  return num;
-}
-let countTime;
+  let countTime;
 
   function runTime() {
-
-     countTime = setInterval(() => {
+    countTime = setInterval(() => {
       ++runSeconds;
 
       let totalSeconds = runSeconds % 60;
       let totalHours = Math.floor(runSeconds / 3600);
       let totalMinutes = Math.floor(runSeconds / 60 - totalHours * 60);
-
 
       totalHours = formatTime(totalHours);
       totalMinutes = formatTime(totalMinutes);
@@ -150,5 +146,4 @@ let countTime;
       document.querySelector("#seconds-passed").innerHTML = totalSeconds;
     }, 1000);
   }
-
 };
