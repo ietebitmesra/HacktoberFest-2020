@@ -5,6 +5,7 @@ window.onload = function () {
   const errorCounterSPAN = document.getElementById("error_counter");
   const accuracyCounterSPAN = document.getElementById("accuracy_counter");
   const wordsperminuteSPAN = document.getElementById("wpm_counter");
+  let textContainerWords;
 
   textInput.disabled = true;
   var errorCount = 0;
@@ -31,10 +32,10 @@ window.onload = function () {
     "We keep moving forward, opening new doors, and doing new things, because we're curious and curiosity keeps leading us down new paths.",
   ];
 
-let currentText;
+  let currentText;
 
-//To check for first time key press 
-var firstTimeKeyPress;
+  //To check for first time key press
+  var firstTimeKeyPress;
 
   generator.onclick = function () {
     document.querySelector("#hours-passed").innerHTML = formatTime(0);
@@ -51,7 +52,7 @@ var firstTimeKeyPress;
     textInput.value = "";
     errorCounterSPAN.innerText = 0;
     accuracyCounterSPAN.innerText = 100 + "%";
-    wordsperminuteSPAN.innerText = 0 + " WPM" ;
+    wordsperminuteSPAN.innerText = 0 + " WPM";
     textContainerDIV.innerText = "";
     total_errors = 0;
     charTyped = 0;
@@ -66,87 +67,75 @@ var firstTimeKeyPress;
 
       charSpan.innerText = character;
       textContainerDIV.append(charSpan);
-
-
+      textContainerWords = textContainerDIV.innerText.split("");
     });
 
     //set the boolean to false whenever the Generator is clicked
     firstTimeKeyPress = false;
 
-
-  // code for error count and accuracy
-  textInput.onkeypress = () => {
-    //Start the timer when the key is pressed the first time.
-    if(!firstTimeKeyPress){
-      runSeconds = 0;
-      runTime();
-      firstTimeKeyPress=true;
-    }
-    ++charTyped;
-    textContainerWords = textContainerDIV.innerText.split("");
-    inputWords = textInput.value.split("");
-
-
-    inputWords.forEach((char, index) => {
-      let typedChar = textContainerWords[index];
-
-       if (Symbol(typedChar).toString() !== Symbol(char).toString()) {
-        errorCount++;
-        textInput.style.color = "#ff0000";
-      } else {
-        textInput.style.color = "#000000";
+    // code for error count and accuracy
+    textInput.onkeyup = () => {
+      //Start the timer when the key is pressed the first time.
+      if (!firstTimeKeyPress) {
+        runSeconds = 0;
+        runTime();
+        firstTimeKeyPress = true;
       }
-    });
+      ++charTyped;
+      inputWords = textInput.value.split("");
 
-    errorCounterSPAN.innerText = errorCount;
-    if (errorCount > temp_mistakes) {
-      total_errors++;
-    }
-    let accuracy = ((charTyped - total_errors) / charTyped) * 100;
-    temp_mistakes = errorCount;
-    errorCount = 0, wpm = 0;
+      inputWords.forEach((char, index) => {
+        let typedChar = textContainerWords[index];
 
-    accuracyCounterSPAN.innerText = Math.round(accuracy) + "%";
+        if (Symbol(typedChar).toString() !== Symbol(char).toString()) {
+          errorCount++;
+          textInput.style.color = "#ff0000";
+        } else {
+          textInput.style.color = "#000000";
+        }
+      });
 
-    if(runSeconds)
-      wpm= (((charTyped/5) - total_errors)*60)/(runSeconds);
+      if (errorCount > temp_mistakes) {
+        total_errors++;
+      }
+      let accuracy = ((charTyped - total_errors) / charTyped) * 100;
+      temp_mistakes = errorCount;
+      errorCount = 0;
+      errorCounterSPAN.innerText = total_errors;
+      accuracyCounterSPAN.innerText = Math.round(accuracy) + "%";
 
-    if(wpm < 0 || runSeconds === 0)
-    wordsperminuteSPAN.innerText = "0 WPM";
-    else
-    wordsperminuteSPAN.innerText = Math.round(wpm) + " WPM";
+      if (runSeconds) wpm = ((charTyped / 5 - total_errors) * 60) / runSeconds;
 
+      if (wpm < 0 || runSeconds === 0) wordsperminuteSPAN.innerText = "0 WPM";
+      else wordsperminuteSPAN.innerText = Math.round(wpm) + " WPM";
 
-    //stop the time when finished writing
+      //stop the time when finished writing
 
-    let inputLength = textInput.value.length+1
+      let inputLength = textInput.value.length + 1;
 
-
-    if(textContainerDIV.innerText.length === inputLength){
-          clearInterval(countTime);
-          textInput.disabled = true;
-    }
-  };
+      if (textContainerDIV.innerText.length === inputLength) {
+        clearInterval(countTime);
+        textInput.disabled = true;
+      }
+    };
   };
   var runSeconds = 0;
-// function for digital formating of time
-function formatTime(num) {
-  if (num < 10) {
-    num = "0" + num;
+  // function for digital formating of time
+  function formatTime(num) {
+    if (num < 10) {
+      num = "0" + num;
+    }
+    return num;
   }
-  return num;
-}
-let countTime;
+  let countTime;
 
   function runTime() {
-
-     countTime = setInterval(() => {
+    countTime = setInterval(() => {
       ++runSeconds;
 
       let totalSeconds = runSeconds % 60;
       let totalHours = Math.floor(runSeconds / 3600);
       let totalMinutes = Math.floor(runSeconds / 60 - totalHours * 60);
-
 
       totalHours = formatTime(totalHours);
       totalMinutes = formatTime(totalMinutes);
@@ -157,5 +146,4 @@ let countTime;
       document.querySelector("#seconds-passed").innerHTML = totalSeconds;
     }, 1000);
   }
-
 };

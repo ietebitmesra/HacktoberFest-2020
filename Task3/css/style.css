@@ -11,8 +11,8 @@ body {
   font-family: "Ubuntu";
   background-color: #f4efef;
   -webkit-user-select: none; /*(Chrome/Safari/Opera)*/ 
--moz-user-select: none;/*(Firefox)*/ 
--ms-user-select: none;/*(IE/Edge)*/ 
+  -moz-user-select: none;/*(Firefox)*/ 
+  -ms-user-select: none;/*(IE/Edge)*/ 
 }
 
 .header {
@@ -87,4 +87,7 @@ body {
     align-items: center;
     justify-content: center;
   }
+}
+.container{
+  margin-bottom: 16px;
 }
