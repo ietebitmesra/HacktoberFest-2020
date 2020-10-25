@@ -118,14 +118,16 @@ window.onload = function () {
         clearInterval(countTime);
         textInput.disabled = true;
         //Show improvements from previous sessions
+        //First check if there's anything in sessioStorage.
+        //If there's nothing in, then it means this is the first session and we can just add the current counts
         if (sessionStorage.getItem('wpm')) {
-          console.log('Previous wpm is ' + sessionStorage.getItem('wpm'));
           let previousWPM = sessionStorage.getItem('wpm');
           let differenceWPM = Math.round(wpm) - previousWPM;
-          wordsperminuteSPAN.innerText = Math.round(wpm) + " WPM" + " " + differenceWPM + " WPM";
+          let arrow = "=";
+          if (differenceWPM > 1) arrow = "⬆️";
+          else arrow = "⬇️";
+          wordsperminuteSPAN.innerText = Math.round(wpm) + " WPM" + " " + arrow + differenceWPM + " WPM";
         } else {
-          //If there's nothing in sessionStorage, then it means this is the first session and we can just add the current counts
-          console.log('Adding current wpm of ' + Math.round(wpm));
           sessionStorage.setItem('wpm', Math.round(wpm));
         }
       }
