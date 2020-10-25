@@ -104,6 +104,7 @@ window.onload = function () {
       errorCounterSPAN.innerText = total_errors;
       accuracyCounterSPAN.innerText = Math.round(accuracy) + "%";
 
+      let wpm;
       if (runSeconds) wpm = ((charTyped / 5 - total_errors) * 60) / runSeconds;
 
       if (wpm < 0 || runSeconds === 0) wordsperminuteSPAN.innerText = "0 WPM";
@@ -116,6 +117,17 @@ window.onload = function () {
       if (textContainerDIV.innerText.length === inputLength) {
         clearInterval(countTime);
         textInput.disabled = true;
+        //Show improvements from previous sessions
+        if (sessionStorage.getItem('wpm')) {
+          console.log('Previous wpm is ' + sessionStorage.getItem('wpm'));
+          let previousWPM = sessionStorage.getItem('wpm');
+          let differenceWPM = Math.round(wpm) - previousWPM;
+          wordsperminuteSPAN.innerText = Math.round(wpm) + " WPM" + " " + differenceWPM + " WPM";
+        } else {
+          //If there's nothing in sessionStorage, then it means this is the first session and we can just add the current counts
+          console.log('Adding current wpm of ' + Math.round(wpm));
+          sessionStorage.setItem('wpm', Math.round(wpm));
+        }
       }
     };
   };
