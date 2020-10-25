@@ -133,7 +133,6 @@ window.onload = function () {
           //Now update storage with the average and current and previous counts
           let averageWPM = (Math.round(wpm) + previousWPM) / 2;
           sessionStorage.setItem('wpm', Math.round(averageWPM));
-          console.log("WPM: " + previousWPM + " " + Math.round(wpm) + " " + averageWPM + " " + differenceWPM);
 
           //Error
           let previousError = parseInt(sessionStorage.getItem('error'));
@@ -145,7 +144,6 @@ window.onload = function () {
           //Now update storage with the average and current and previous counts
           let averageError = (total_errors + previousError) / 2;
           sessionStorage.setItem('error', Math.round(averageError));
-          console.log("Error: " + previousError + " " + total_errors + " " + averageError + " " + differenceError);
 
           //Accuracy
           let previousAccuracy = parseInt(sessionStorage.getItem('accuracy'));
@@ -158,7 +156,6 @@ window.onload = function () {
           //Now update storage with the average and current and previous counts
           let averageAccuracy = (Math.round(accuracy) + previousAccuracy) / 2;
           sessionStorage.setItem('accuracy', Math.round(averageAccuracy));
-          console.log("Accuracy: " + previousAccuracy + " " + Math.round(accuracy) + " " + averageAccuracy + " " + differenceAccuracy);
 
         } else {
           sessionStorage.setItem('wpm', Math.round(wpm));
