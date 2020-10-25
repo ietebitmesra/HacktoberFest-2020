@@ -117,18 +117,53 @@ window.onload = function () {
       if (textContainerDIV.innerText.length === inputLength) {
         clearInterval(countTime);
         textInput.disabled = true;
+
         //Show improvements from previous sessions
-        //First check if there's anything in sessioStorage.
+        //First check if there's anything in sessionStorage.
         //If there's nothing in, then it means this is the first session and we can just add the current counts
         if (sessionStorage.getItem('wpm')) {
-          let previousWPM = sessionStorage.getItem('wpm');
+
+          //WPM
+          let previousWPM = parseInt(sessionStorage.getItem('wpm'));
           let differenceWPM = Math.round(wpm) - previousWPM;
-          let arrow = "=";
-          if (differenceWPM > 1) arrow = "⬆️";
-          else arrow = "⬇️";
-          wordsperminuteSPAN.innerText = Math.round(wpm) + " WPM" + " " + arrow + differenceWPM + " WPM";
+          let arrowWPM = "=";
+          if (differenceWPM > 1) arrowWPM = "⬆️+";
+          else arrowWPM = "⬇️";
+          wordsperminuteSPAN.innerText = Math.round(wpm) + " WPM" + " " + arrowWPM + differenceWPM + " WPM";
+          //Now update storage with the average and current and previous counts
+          let averageWPM = (Math.round(wpm) + previousWPM) / 2;
+          sessionStorage.setItem('wpm', Math.round(averageWPM));
+          console.log("WPM: " + previousWPM + " " + Math.round(wpm) + " " + averageWPM + " " + differenceWPM);
+
+          //Error
+          let previousError = parseInt(sessionStorage.getItem('error'));
+          let differenceError = previousError - total_errors;
+          let arrowError = "=";
+          if (differenceError > 1) arrowError = "⬆️+";
+          else arrowError = "⬇️";
+          errorCounterSPAN.innerText = total_errors + " " + arrowError + differenceError;
+          //Now update storage with the average and current and previous counts
+          let averageError = (total_errors + previousError) / 2;
+          sessionStorage.setItem('error', Math.round(averageError));
+          console.log("Error: " + previousError + " " + total_errors + " " + averageError + " " + differenceError);
+
+          //Accuracy
+          let previousAccuracy = parseInt(sessionStorage.getItem('accuracy'));
+          let differenceAccuracy = Math.round(accuracy) - previousAccuracy;
+          let arrowAccuracy = "=";
+          if (differenceAccuracy > 1) arrowAccuracy = "⬆️+";
+          else arrowAccuracy = "⬇️";
+          errorCounterSPAN.innerText = total_errors + " " + arrowError + differenceError;
+          accuracyCounterSPAN.innerText = Math.round(accuracy) + "%" + " " + arrowAccuracy + differenceAccuracy + "%";
+          //Now update storage with the average and current and previous counts
+          let averageAccuracy = (Math.round(accuracy) + previousAccuracy) / 2;
+          sessionStorage.setItem('accuracy', Math.round(averageAccuracy));
+          console.log("Accuracy: " + previousAccuracy + " " + Math.round(accuracy) + " " + averageAccuracy + " " + differenceAccuracy);
+
         } else {
           sessionStorage.setItem('wpm', Math.round(wpm));
+          sessionStorage.setItem('error', total_errors);
+          sessionStorage.setItem('accuracy', Math.round(accuracy));
         }
       }
     };
