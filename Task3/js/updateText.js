@@ -127,8 +127,8 @@ window.onload = function () {
           let previousWPM = parseInt(sessionStorage.getItem('wpm'));
           let differenceWPM = Math.round(wpm) - previousWPM;
           let arrowWPM = "=";
-          if (differenceWPM > 1) arrowWPM = "⬆️+";
-          else arrowWPM = "⬇️";
+          if (differenceWPM > 0) arrowWPM = "⬆️+";
+          if (differenceWPM < 0) arrowWPM = "⬇️";
           wordsperminuteSPAN.innerText = Math.round(wpm) + " WPM" + " " + arrowWPM + differenceWPM + " WPM";
           //Now update storage with the average and current and previous counts
           let averageWPM = (Math.round(wpm) + previousWPM) / 2;
@@ -136,10 +136,11 @@ window.onload = function () {
 
           //Error
           let previousError = parseInt(sessionStorage.getItem('error'));
-          let differenceError = previousError - total_errors;
+          //let differenceError = previousError - total_errors;
+          let differenceError = 0;
           let arrowError = "=";
-          if (differenceError > 1) arrowError = "⬆️+";
-          else arrowError = "⬇️";
+          if (differenceError > 0) arrowError = "⬆️+";
+          if (differenceError < 0) arrowError = "⬇️";
           errorCounterSPAN.innerText = total_errors + " " + arrowError + differenceError;
           //Now update storage with the average and current and previous counts
           let averageError = (total_errors + previousError) / 2;
@@ -149,8 +150,8 @@ window.onload = function () {
           let previousAccuracy = parseInt(sessionStorage.getItem('accuracy'));
           let differenceAccuracy = Math.round(accuracy) - previousAccuracy;
           let arrowAccuracy = "=";
-          if (differenceAccuracy > 1) arrowAccuracy = "⬆️+";
-          else arrowAccuracy = "⬇️";
+          if (differenceAccuracy > 0) arrowAccuracy = "⬆️+";
+          if (differenceAccuracy < 0) arrowAccuracy = "⬇️+";
           errorCounterSPAN.innerText = total_errors + " " + arrowError + differenceError;
           accuracyCounterSPAN.innerText = Math.round(accuracy) + "%" + " " + arrowAccuracy + differenceAccuracy + "%";
           //Now update storage with the average and current and previous counts
