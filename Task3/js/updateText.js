@@ -150,7 +150,7 @@ window.onload = function () {
           let differenceAccuracy = Math.round(accuracy) - previousAccuracy;
           let arrowAccuracy = "=";
           if (differenceAccuracy > 0) arrowAccuracy = "⬆️+";
-          if (differenceAccuracy < 0) arrowAccuracy = "⬇️+";
+          if (differenceAccuracy < 0) arrowAccuracy = "⬇️";
           errorCounterSPAN.innerText = total_errors + " " + arrowError + differenceError;
           accuracyCounterSPAN.innerText = Math.round(accuracy) + "%" + " " + arrowAccuracy + differenceAccuracy + "%";
           //Now update storage with the average and current and previous counts
