@@ -136,8 +136,7 @@ window.onload = function () {
 
           //Error
           let previousError = parseInt(sessionStorage.getItem('error'));
-          //let differenceError = previousError - total_errors;
-          let differenceError = 0;
+          let differenceError = previousError - total_errors;
           let arrowError = "=";
           if (differenceError > 0) arrowError = "⬆️+";
           if (differenceError < 0) arrowError = "⬇️";
