@@ -15,3 +15,9 @@
 ### (g) Once the issue is fixed, just give us a Pull Request, and you are done!! 
 
 ## Congratulations !! :partying_face:
+
+View Your contribution at: https://ietebitmesra.github.io/HacktoberFest-2020/Task3/index.html
+
+### Humble Request !important
+
+All the enthusiastic contributors are requested to add their part carefully following the proper code block which is to be to be copy-pasted and then edited. Also,before sendng a PR, it would be great if you yourself render the html page at least once to see how your changes are manifested. There have been instances where a single contribution destroyed the entire layout of the page, even affecting others' contributions.
